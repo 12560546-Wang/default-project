@@ -13,5 +13,20 @@ export default tseslint.config(
       '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
     },
   },
+  {
+    files: ['public/**/*.js'],
+    languageOptions: {
+      globals: {
+        window: 'readonly',
+        document: 'readonly',
+        localStorage: 'readonly',
+        performance: 'readonly',
+        requestAnimationFrame: 'readonly',
+        AudioContext: 'readonly',
+        devicePixelRatio: 'readonly',
+        console: 'readonly',
+      },
+    },
+  },
   prettier,
 );

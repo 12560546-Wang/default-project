@@ -3,32 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Default Project</title>
+    <title>雙人射擊 DUO SHOOTER</title>
     <style>
+      :root {
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
       body {
-        font-family: system-ui, sans-serif;
-        display: grid;
-        place-items: center;
-        min-height: 100vh;
         margin: 0;
-        background: #0f172a;
-        color: #e2e8f0;
+        height: 100%;
       }
-      main {
-        text-align: center;
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        min-height: 100vh;
+        padding: 18px;
+        background: radial-gradient(circle at 50% 0%, #16203a 0%, #060912 60%, #03050b 100%);
+        color: #cbd5f5;
+        font-family:
+          'Segoe UI',
+          system-ui,
+          -apple-system,
+          'Noto Sans TC',
+          sans-serif;
+        overflow: hidden;
       }
-      code {
+      h1 {
+        margin: 0;
+        font-size: 20px;
+        letter-spacing: 4px;
+        font-weight: 800;
+        background: linear-gradient(90deg, #38bdf8, #a78bfa, #fb923c);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .stage {
+        position: relative;
+        width: min(96vw, 1100px);
+        aspect-ratio: 8 / 5;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(120, 160, 255, 0.25);
+        box-shadow:
+          0 0 0 1px rgba(10, 15, 30, 0.9),
+          0 24px 70px rgba(0, 0, 0, 0.7),
+          0 0 90px rgba(56, 189, 248, 0.12);
+      }
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 22px;
+        justify-content: center;
+        font-size: 13px;
+        opacity: 0.85;
+      }
+      .legend b {
+        color: #fff;
+      }
+      .p1 {
+        color: #38bdf8;
+      }
+      .p2 {
+        color: #fb923c;
+      }
+      kbd {
+        display: inline-block;
+        padding: 1px 6px;
+        border-radius: 5px;
         background: #1e293b;
-        padding: 0.2rem 0.5rem;
-        border-radius: 6px;
+        border: 1px solid #334155;
+        font-size: 11px;
+        color: #e2e8f0;
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>Default Project</h1>
-      <p>全端 Node.js / TypeScript 專案</p>
-      <p>後端 API 已啟動，嘗試 <code>GET /health</code></p>
-    </main>
+    <h1>DUO SHOOTER 雙人射擊</h1>
+    <div class="stage">
+      <canvas id="game"></canvas>
+    </div>
+    <div class="legend">
+      <span class="p1"
+        ><b>P1</b> <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移動 ·
+        <kbd>Space</kbd> 射擊</span
+      >
+      <span class="p2"
+        ><b>P2</b> <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> 移動 ·
+        <kbd>Enter</kbd> 射擊</span
+      >
+      <span><kbd>P</kbd> 暫停 · <kbd>M</kbd> 靜音</span>
+    </div>
+    <script type="module" src="./game.js"></script>
   </body>
 </html>
